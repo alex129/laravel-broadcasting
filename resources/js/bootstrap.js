@@ -12,6 +12,20 @@ window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+import Echo from 'laravel-echo';
+import socketClient  from 'socket.io-client';
+window.io = socketClient
+window.echo = new Echo({
+  broadcaster: 'socket.io',
+  host: 'http://127.0.0.1:6001',
+//   auth: {
+//     headers: {
+//       /** I'm using access tokens to access  **/
+//       Authorization: 'Bearer ' + Cookies.get('access_token'),
+//     },
+//   },
+});
+
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
