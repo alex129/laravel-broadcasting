@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMessage
+class SendMessage implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -31,16 +31,16 @@ class SendMessage
      */
     public function broadcastOn()
     {
-        return new Channel('user-channel');
+        return new Channel('public-message-channel');
     }
 
     public function broadcastAs()
     {
-        return 'UserEvent';
+        return 'MessageEvent';
     }
 
     public function broadcastWith()
     {
-        return ['title' => 'This notification from plik129'];
+        return ['message' => 'This notification from plik129'];
     }
 }

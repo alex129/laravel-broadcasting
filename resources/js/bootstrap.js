@@ -13,11 +13,10 @@ window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 import Echo from 'laravel-echo';
-import socketClient  from 'socket.io-client';
-window.io = socketClient
-window.echo = new Echo({
+window.Echo = new Echo({
   broadcaster: 'socket.io',
-  host: 'http://127.0.0.1:6001',
+  host: `${window.location.hostname}:6001`,
+  transports: ['websockets']
 //   auth: {
 //     headers: {
 //       /** I'm using access tokens to access  **/

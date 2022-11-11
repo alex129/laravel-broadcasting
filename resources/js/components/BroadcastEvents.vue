@@ -2,11 +2,11 @@
 import { onMounted } from 'vue'
 
 onMounted(() => {
-    console.log('Hello from BroadcastEvents', window.echo)
+    console.log('Hello from BroadcastEvents', window.Echo)
     
     var i = 0;
-    window.echo.channel('user-channel')
-        .on('.UserEvent', (data) => {
+    window.Echo.channel('public-message-channel')
+        .listen('MessageEvent', (data) => {
         i++;
         console.log('hello', data.title)
     });

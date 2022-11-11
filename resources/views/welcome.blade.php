@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{csrf_token()}}">
 
         <title>Laravel Broadcasting</title>
 
@@ -28,5 +29,6 @@
         </div>
     </body>
     
+    <script src="//{{ request()->getHost() }}:6001/socket.io/socket.io.js"></script>
 	@vite('resources/js/app.js')
 </html>
