@@ -6,5 +6,6 @@ export default defineConfig({
     plugins: [
         vue(),
         laravel(['resources/css/app.css', 'resources/js/app.js']),
+        laravel(['resources/js/echo.js']),
     ],
 });

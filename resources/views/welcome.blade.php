@@ -29,6 +29,8 @@
         </div>
     </body>
     
-    <script src="//{{ request()->getHost() }}:6001/socket.io/socket.io.js"></script>
+    {{-- <script src="//{{Request::getHost()}}:6001/socket.io/socket.io.js"></script> --}}
+    <script src="//{{request()->getHost()}}:6001/socket.io/socket.io.js"></script>
 	@vite('resources/js/app.js')
+	@vite('resources/js/echo.js')
 </html>
